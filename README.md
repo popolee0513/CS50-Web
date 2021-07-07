@@ -4,18 +4,6 @@ Django ORM and Relationship Field
 
 認識 [Django](https://www.djangoproject.com/)  **OneToOneField** , **ForeignKey** ,**ManyToManyField**  📝
 
-為什麼我會把這三個特別拿出來講呢 ？ 因為他會影響到你設計資料庫，更影響到你的整體架構。
-
-* [Youtube Tutorial - part1](https://youtu.be/b2W7aJjbbC0)
-
-* [Youtube Tutorial - OneToOneField - part2](https://youtu.be/tYV2pmpTGEU)
-
-* [Youtube Tutorial - ForeignKey - part3](https://youtu.be/1RkipG5YQO0)
-
-* [Youtube Tutorial - ManyToManyField - part4](https://youtu.be/f3YZIHUTzMg)
-
-建議對 [Django](https://github.com/django/django) 不熟悉的朋友，可以先觀看我之前寫的文章（ 先認識一下 [Django](https://github.com/django/django) ）
-
 * [Django 基本教學 - 從無到有 Django-Beginners-Guide](https://github.com/twtrubiks/django-tutorial)
 
 ## 我可以從這篇學到什麼
