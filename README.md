@@ -1,5 +1,3 @@
-# CS50-Web
-
 # django-field-tutorial
 
 Django ORM and Relationship Field
