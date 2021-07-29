@@ -39,7 +39,7 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
    * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/2/commerce/).
 - Project Demos:
    * The project Link : [link](https://popo-commerce.herokuapp.com/)
-   * You can either register an account or use the guest account(*Username:guest Password:guest888*) to view the detail of the item.
+   * You can either register an account or use the guest account(***Username:guest Password:guest888***) to view the detail of the item.
 
 
 
