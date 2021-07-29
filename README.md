@@ -23,14 +23,16 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
 ### Project 
 **project-0-Search**
 -  Overview: 
-   * Design a front-end for Google Search, Google Image Search, and Google Advanced Search.The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/0/search/).
+   * Design a front-end for Google Search, Google Image Search, and Google Advanced Search.
+   * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/0/search/).
 - Project Demos:
    * The project Link : [link](https://popolee0513.github.io/Search.github.io/)
    * The project youtube demo : [link](#)
 
 **Project 1 -Wiki** 
 - Overview: 
-  * Design a Wikipedia-like online encyclopedia.The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/1/wiki/).
+  * Design a Wikipedia-like online encyclopedia.
+  * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/1/wiki/).
 - Project Demos:
    * The project youtube demo : [link](#)
 
