@@ -1,0 +1,131 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+{% if profile %}
+             <div id="profile">
+              <div class="profile-user-settings">
+              <h1 class="profile-user-name">{{User}}</h1>&nbsp;&nbsp;&nbsp;
+                  {% if user.username != User %}
+                <button  data-people={{uid}} id="control_follow"  class="btn  btn-outline-primary btn-sm" style="margin-top:0.1px;font-family:Times New Roman;font-size:15px;">{{check_follow}}</button>
+                  {% endif %}
+            </div>
+             <div class="profile-stats">
+               <ul>
+                    <li><span   class="profile-stat-count">{{article_count}}</span> posts</li>
+                    <li><span  id=data-follower-{{uid}}   class="profile-stat-count">{{follower_count}}</span> followers</li>
+                    <li><span  id=data-following-{{uid}}  class="profile-stat-count">{{followeing_count}}</span> following</li>
+                </ul>
+             </div>
+             </div>
+{% endif %}
+
+{% if show_add_post %}
+<div id="add_post">
+<form>
+  <div class="form-group">
+    <label for="Textarea1" >Post</label>
+    <textarea class="form-control" required id="Textarea1" autocomplete="off" ></textarea>
+  </div>
+  <button  class="btn btn-outline-primary btn-sm" type="submit" id="submit" >post</button>
+</form> 
+</div>
+{% endif %}
+
+
+
+
+ <div class="container-fluid" style="margin-top: 10px;">
+    
+{% for item in articles %}   
+
+ <div id="app"  >
+  <!--發文者資料-->
+  <div class="header">
+    <!--左半邊-->
+    <div class="left-info">
+ 
+      <!--姓名-->
+      <div class="name-info">
+         <div class="name">
+          <a href="{% url 'home' item.author.username %}">{{item.author.username}}</a>
+        </div>
+        <div class="time">
+          {{item.created|date:"Y-m-d H:i"}}
+        </div>
+      </div>
+        
+    </div>
+      <div class="right-info">
+     {%if user.is_authenticated and user == item.author %}
+     <button data-edit={{item.id}} id="edit" class="btn btn-outline-primary btn-sm">edit</button>
+     {%endif%}
+     </div>
+ </div>
+ <div class="content"  id ="article-{{item.id}}">{{item.content}}</div>
+ <div class="feedback-action">
+ <!--feedback反應欄位-->
+  <button data-id={{item.id}} id ="like" style="border:none; background-color: transparent;cursor:pointer;
+    overflow: hidden;
+    outline:none;"><i class="fas fa-heart"  style="color:red;"></i></button>&nbsp;<span id="count-{{item.id}}" class="text-nowrap"></span>
+ </div>
+  
+  </div>     
+ {% endfor %}
+</div>
+
+<br>
+<div class="pull-right" >
+ 
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                         <!--分頁功能前端的方向箭頭代码-->
+                        <!--//Page.has_previous()：如果有上一页，返回 True。-->
+                        <!--Page.previous_page_number()：返回上一頁的頁碼-->
+                        {% if articles.has_previous %}
+                        <li class="page-item">
+                            <a href="?page={{ articles.previous_page_number }}" aria-label="Previous" class="page-link">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                         <!--分頁功能顯示頁碼的中间部分代码-->
+                         <!--Paginator.page_range：基於1的頁數範圍迭代器。比如：[1, 2, 3, 4]-->
+                        {% for page_num in articles.paginator.page_range %}
+                            {% if page_num == articles.number %}
+                                <li class="page-item">
+                                    <a href="#" class="page-link">
+                                        {{ page_num }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_num }}" class="page-link">{{ page_num }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                         
+                         <!-- 分頁功能末端的方向箭頭代码-->
+                        {% if  articles.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{ articles.next_page_number }}" aria-label="last" class="page-link">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/social.js' %}"></script>
+{% endblock %}

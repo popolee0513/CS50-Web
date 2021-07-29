@@ -1,0 +1,55 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+
+<div class="container-fluid" >
+    
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="col-12" >
+   <form action="{% url 'show' %}" method="post"  class="form-inline" >
+  {% csrf_token %}
+  <select name="category" class="form-control" onchange="this.form.submit()" >
+        <option class="placeholder" selected disabled value="">Please Select One Category</option>
+        <option value="All Category">All Category</option>
+        {% for type in category %}
+            <option value="{{ type }}">{{ type }}</option>
+        {% endfor %}
+ </select>
+  </form>
+    </div>
+    </div>    
+    </div>         
+         
+
+<div class="container-fluid ">
+    <div class="row ">
+{% for item in items %}   
+
+<div class="col-sm-6 col-lg-4" style="margin-bottom:5px;">
+            <div class="card"> 
+            <img class="card-img-top" src={{ item.image }} width="120" height="200">
+                <div class="card-body">
+                <h4 class="card-title">{{ item.title }}</h4>
+                    <a href="{% url 'items'  item.title %}" class="btn btn-outline-secondary ">View</a>
+                    <form action="{% url 'show' %}" method="post"  class="form-inline" style="display:inline;">
+                     {% csrf_token %}
+                     <input class="btn btn-outline-danger" type="submit" value={{ item.category }} name="category">
+                     </form> 
+                     {%if not  item.bids.last.is_closed %}
+                     <form action="{% url 'index' %}" method="get"  class="form-inline" style="display:inline;">
+                      {% csrf_token %}
+                      <input class="btn btn-outline-warning" type="submit" value="active" >
+                     </form>   
+                     {% endif %}
+            
+                </div>
+            </div>
+        </div>
+
+ {% endfor %}
+        
+</div>
+</div>
+
+{% endblock %}
