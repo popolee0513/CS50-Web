@@ -51,7 +51,7 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
   * Design a Twitter-like social network website for making posts and following users.
   * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/4/network/).
 - Project Demos:
-   * The project Link : [link](#)
+   * The project Link : [link](https://popo-network.herokuapp.com/)
    * You can either register an account or use the guest account(***Username:guest Password:guest888***) to post an article and follow or unfollow other people .
 
 
