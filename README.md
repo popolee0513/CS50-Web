@@ -33,6 +33,14 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
   * Design a Wikipedia-like online encyclopedia.
   * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/1/wiki/).
 
+***📊 project-3-Commerce***
+-  Overview: 
+   * Design an eBay-like e-commerce auction site that will allow users to post auction listings, place bids on listings, comment on those listings, and add listings to a "watchlist."
+   * The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/2/commerce/).
+- Project Demos:
+   * The project Link : [link](https://popo-commerce.herokuapp.com/)
+   * You can either register an account or use the guest account(Username:guest Password:guest888) to view the detail of the item.
+
 
 
 
