@@ -26,6 +26,12 @@ Design a front-end for Google Search, Google Image Search, and Google Advanced S
 ## Project Demos
 The project Link : [link](https://popolee0513.github.io/Search.github.io/)
 
+# Project 1 - 
+## Overview
+Design a Wikipedia-like online encyclopedia.The project specifications are listed [here](https://cs50.harvard.edu/web/2020/projects/1/wiki/).
+## Project Demos
+The project youtube demo : [link](#)
+
 
 
 
