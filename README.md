@@ -21,7 +21,7 @@ This course picks up where CS50x leaves off, diving more deeply into the design 
 - [SQLite](https://www.sqlite.org/index.html)
 
 ### Project 
-**✍️
+**👉👉👉
 Search**
 -  Overview: 
    * Design a front-end for Google Search, Google Image Search, and Google Advanced Search.
@@ -30,7 +30,7 @@ Search**
    * The project Link : [link](https://popolee0513.github.io/Search.github.io/)
    * The project youtube demo : [link](#)
 
-**✍️
+**👉👉👉
 Wiki** 
 - Overview: 
   * Design a Wikipedia-like online encyclopedia.
