@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+     
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<title></title>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');
+		</style>
+        <script src="{% static 'network/social.js' %}"></script>
+	</head>
+	<body style="background: #f5f8fa;font-family: 'Roboto', sans-serif;">
+		<div style="width: 90%;max-width:600px;margin: 20px auto;background: #ffffff;">
+			<section style="margin: 0 15px;color:#425b76;">
+				<h2 style="margin: 40px 0 27px 0;text-align: center;">Thank you to registration</h2>
+				<hr style="border:0;border-top: 1px solid rgba(66,91,118,0.3);max-width: 50%">
+				<p style="font-size:15.5px;font-weight: bold;margin:40px 20px 15px 20px;display:inline;">Hi {{username}}, we have received your details and will process soon.</p>
+                  <button class="btn btn-outline-primary" id="register">Register</button>
+			</section>
+		</div>
+	</body>
+</html>

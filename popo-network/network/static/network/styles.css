@@ -1,0 +1,177 @@
+/*padding: 20px;（上、下、左、右各20px。）  */
+/*padding: 20px 40px;（上、下20px；左、右40px。） */
+/*padding: 20px 40px 60px;（上20px；左、右40px；下60px。）  */
+/*padding: 20px 40px 60px 80px;（上20px；右40px；下60px；左80px。） */
+html, body{
+    height: 100%;
+    width: 100%;  
+}
+#post_article{
+margin: 0 auto;  /*表示上下邊界為 0 ，左右為 auto 表示自己均分。*/
+background: white;
+border: 1px solid #dddfe2;
+border-radius: 10px;
+width:75%;
+height:100px;
+display: block;
+outline: none;    
+}
+@media (max-width: 576px) {
+  #post_article{
+    width:100%;
+      
+}
+ 
+   
+}
+.pull-right{
+    width:auto;
+    height:auto;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+    padding-bottom:50px;
+     }
+
+.modal-header label{
+font-size: 20px;
+padding-left:8px;
+}
+
+
+.navbar{
+    padding: .5rem;
+    margin-bottom:10px;
+}
+
+.navbar-nav li {
+    padding-right: 10px;
+}
+
+.nav-link{
+    font-size: 1.1em !important;
+}
+
+
+#app {
+  margin: 0px  auto 3px;
+  height: auto;
+  max-height :300px; 
+  width: 80%;
+  overflow-y:auto;
+  background: white;
+  border: 1px solid #dddfe2;
+  border-radius: 10px;
+}
+@media (max-width: 576px) {
+  #app{
+    width:100%;     
+} 
+}
+
+
+#app .header {
+  display: flex;
+  justify-content: space-between; /*左、右側的元件分別對齊外緣*/
+  padding: 12px 12px 0; /*上，左右，下的間距值*/
+}
+#app .header .left-info .name-info .name {
+  display: inline-block; 
+  font-weight: bolder;
+  cursor: pointer; /*滑鼠滑過去文字會變成手的圖案*/
+}
+#app .header .left-info .name-info .name a {
+  /*連結*/
+  text-decoration: none; /*將<a>預設特性(底下會有一條藍色底線)移除*/
+  color: #365899;
+}
+#app .header .left-info .name-info .name a:hover {
+  /*滑鼠一過去的效果*/
+  text-decoration: underline; /*產生底線*/
+}
+#app .header .left-info .name-info .time {
+  color: #616770;
+  font-size: 13px;
+}
+#app .feedback-action {
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  height: 32px;
+  margin: 0 12px;
+  min-height: 32px;
+  padding: 4px 0;
+}
+#app .content {
+  white-space: pre-wrap;  /*pre-wrap就是preserve+wrap，保留空格和換行符，且可以自動換行。*/
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0; /*字與字的間距*/
+  line-height: 28px; /*行高*/
+  margin: 0 0 7px 0;
+  padding: 12px 12px 0;
+}
+
+
+#profile {
+    margin: 0 auto;
+    width:100%;
+    height:auto;
+}
+#profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#profile .profile-stats{
+margin-top: 0.5rem;
+text-align:center;
+width:100%;
+overflow: visible;
+}
+#profile .profile-stats li {
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.1; /*行高*/
+    margin-right:0.5rem;
+  
+    cursor: pointer;
+}
+.profile-user-settings{
+    text-align:center;
+    margin: 0 auto;
+}
+.profile-user-name { 
+    display:inline;
+    font-weight: bolder;
+    cursor: pointer; 
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: 'Lucida Handwriting';
+    text-decoration: none; /*將<a>預設特性(底下會有一條藍色底線)移除*/
+    color: #365899;
+}
+
+
+
+.check_detail{
+width:20%;
+}
+
+
+@media (max-width: 576px) {
+  .check{
+    width:100%;
+      
+}
+
+
+
+
+
+
+
+
+
+
+

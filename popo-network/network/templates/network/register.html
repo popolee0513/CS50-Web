@@ -1,0 +1,40 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+     <div style="text-align:center;" >
+    <h2>Register</h2>
+    
+    {% if message %}
+        <div class="alert alert-danger" role="alert" style="width:80%; margin: auto;
+    text-align: center;">{{ message }}</div>
+    {% endif %}
+    <br>
+    <form action="{% url 'register' %}"  autocomplete=off method="post" class="form-horizontal" style="width:80%; margin: auto;
+    text-align: center;">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+            <p class="form-label" style="text-align: left;margin-bottom:3px;transform: translatex(2.5%);">Password Requirements</p>
+            <ul style="text-align: left; font-size:10px;">
+                <li>At least 1 letter between [a-z] and 1 letter between [A-Z].</li>
+                <li>At least 1 number between [0-9].</li>
+                <li>At least 1 character from [$#@].</li>
+                <li>Minimum length 6 characters.</li>
+                <li> Maximum length 16 characters.</li>
+           </ul>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register" >
+         </form>
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+   
+    </div>
+{% endblock %}

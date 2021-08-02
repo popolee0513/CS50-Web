@@ -1,0 +1,256 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+{% if profile %}
+             <div id="profile">
+              <div class="profile-user-settings">
+              <h1 class="profile-user-name">{{User}}</h1>&nbsp;&nbsp;&nbsp;
+                  {% if user.username != User %}
+                <button  data-people={{uid}} id="control_follow"  class="btn  btn-outline-primary btn-sm" style="font-family:Times New Roman;font-size:15px;transform: translateY(-10%);">{{check_follow}}</button>
+                  {% endif %}
+                 </div>
+                <div class="profile-stats">
+               <ul>
+<li><span class="profile-stat-count">{{article_count}}</span> posts</li>                   
+<li><button type="button" style="background-color:White;border:none;outline:none;"  data-toggle="modal" data-target="#example"
+      data-follower= {{uid}} id="panel-follower"><span  id=data-follower-{{uid}}   class="profile-stat-count">{{follower_count}}</span> follower</button></li>
+               <div class="modal fade" id="example" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" class="check_detail">    
+       <div class="modal-header">
+            <label style="color:#365899;font-family:Lucida Handwriting;">follower</label> 
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+           
+      </div>
+      <div class="modal-body" id="modal-follower-body-{{uid}}">
+        <div class="row mx-auto">
+        {% for item in follower %}
+        
+        {% if user.username == User %}
+        <div class="col-3" >         
+        <p style="text-align:left;margin-bottom:5px;font-size:18px;font-family:Lucida Handwriting;"><a href="{% url 'home' item %}">{{ item }}</a></p>
+        </div>    
+        <div class="col-9">  
+         <!--button type="button" class="btn btn-outline-danger" style="text-align:left;margin-bottom:5px;float: left;"--><!--Remove--><!--/button-->
+          </div>
+        {% else %} 
+        <div class="col-9" >         
+        <p style="text-align:left;margin-bottom:5px;font-size:18px;font-family:Lucida Handwriting;"><a href="{% url 'home' item %}">{{ item }}</a></p>
+        </div>    
+            
+        {% endif %}
+        {% empty %}
+        <p style="font-family:Lucida Handwriting;">No follower</p>
+        {% endfor %}        
+        </div>
+      </div>   
+     <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+      </div>   
+         </div>
+  </div>
+</div>
+                   
+                   
+<li><button type="button" style="background-color:White;border:none;outline:none;" data-toggle="modal" data-target="#example1"
+      data-following= {{uid}} id="panel-following"><span  id=data-following-{{uid}}  class="profile-stat-count">{{followeing_count}}</span> following</button></li>  
+                   <div class="modal fade" id="example1" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" class="check_detail">    
+       <div class="modal-header">
+            <label style="color:#365899;font-family:Lucida Handwriting;">following</label> 
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-following-body-{{uid}}" >
+        <div class="row mx-auto">
+        {% for item in following %}
+        
+        {% if user.username == User %}
+        <div class="col-3" >         
+        <p style="text-align:left;margin-bottom:5px;font-size:18px;font-family:Lucida Handwriting;"><a href="{% url 'home' item %}">{{ item }}</a></p>
+        </div>    
+        <div class="col-9">  
+         <!--button type="button" class="btn btn-outline-danger" style="text-align:left;margin-bottom:5px;float: left;"--><!--Unfollow--><!--/button-->
+          </div>
+        {% else %} 
+        <div class="col-9" >         
+        <p style="text-align:left;margin-bottom:5px;font-size:18px;font-family:Lucida Handwriting;"><a href="{% url 'home' item %}">{{ item }}</a></p>
+        </div>    
+            
+        {% endif %}
+        {% empty %}
+        <p style="font-family:Lucida Handwriting;">No following any user</p>
+        {% endfor %}        
+        </div>
+      </div>   
+     <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+      </div>   
+        
+   </div>
+  </div>
+</div>  
+</ul>
+</div>
+</div>
+
+{% endif %}
+
+{% if show_add_post %}
+<button     data-toggle="modal" data-target="#exampleModal"  id="post_article">
+  <p style="background-color:#F8F8F8;height:80% ;border-radius: 10px;transform: translateY(15%);padding-top:20px;font-size:1.5rem;font-weight: lighter;color:#808080;">Write something</p> 
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="height:80%;">
+    <div class="modal-content" style=" border-radius: 10px; height:100%;">
+   <div class="modal-header">
+   <label>Post</label>
+   <button type="button" class="close" data-dismiss="modal" id="close_window"><span aria-hidden="true">&times;</span></button>
+   </div>
+   
+  <div class="modal-body" style="height:150%;">
+     <form style="height:100%;">
+      <div class="form-group" style="height:100%;">
+     <textarea class="form-control" required id="Textarea1" autocomplete="off" style="height:100%;"></textarea>
+      </div>
+       </form >
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" id="close_window">Close</button>
+        <button  class="btn btn-outline-danger" type="submit" id="submit" data-dismiss="modal" disabled>Add Post</button>
+         
+        </div>
+</div>
+</div>
+</div>      
+
+{% endif %}
+
+
+
+
+ <div class="container-fluid" style="margin-top: 10px;">
+    
+{% for item in articles %}   
+
+ <div id="app"  >
+  <!--發文者資料-->
+  <div class="header">
+    <!--左半邊-->
+    <div class="left-info">
+ 
+      <!--姓名-->
+      <div class="name-info">
+         <div class="name">
+          <a href="{% url 'home' item.author.username %}">{{item.author.username}}</a>
+        </div>
+        <div class="time">
+          {{item.created|date:"Y-m-d H:i"}}
+        </div>
+      </div>
+        
+    </div>
+      <div class="right-info">
+     {%if user.is_authenticated and user == item.author %}
+     <button data-edit={{item.id}} id="edit" class="btn btn-outline-primary btn-sm"  data-toggle="modal" data-target="#examplesss">edit</button>
+      <div class="modal fade" id="examplesss" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="height:80%;">
+    <div class="modal-content" style=" border-radius: 10px; height:100%;">
+   <div class="modal-header">
+   <label>Edit the Post</label>
+   <button type="button" class="close" data-dismiss="modal" id="close_window"><span aria-hidden="true">&times;</span></button>
+   </div>
+   
+  <div class="modal-body" style="height:150%;">
+     <form style="height:100%;">
+      <div class="form-group" style="height:100%;">
+     <textarea class="form-control" required id="Textarea2" autocomplete="off" style="height:100%;"></textarea>
+      </div>
+       </form >
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" id="close_window">Close</button>
+        <button  class="btn btn-outline-danger" type="submit" id="change" data-dismiss="modal" >Edit the Post</button>
+         
+        </div>
+</div>
+</div>
+</div> 
+
+{%endif%}
+     </div>
+ </div>
+ <div class="content"  id ="article-{{item.id}}">{{item.content}}</div>
+ <div class="feedback-action">
+ <!--feedback反應欄位-->
+  <button data-id={{item.id}} id ="like" style="border:none; background-color: transparent;cursor:pointer;
+    overflow: hidden;
+    outline:none;"><i class="fas fa-heart"  style="color:red;"></i></button>&nbsp;<span id="count-{{item.id}}" class="text-nowrap"></span>
+ </div>
+  
+  </div>     
+ {% endfor %}
+</div>
+
+<br>
+<div class="pull-right" >
+ 
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                         <!--分頁功能前端的方向箭頭代码-->
+                        <!--//Page.has_previous()：如果有上一页，返回 True。-->
+                        <!--Page.previous_page_number()：返回上一頁的頁碼-->
+                        {% if articles.has_previous %}
+                        <li class="page-item">
+                            <a href="?page={{ articles.previous_page_number }}" aria-label="Previous" class="page-link">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                         <!--分頁功能顯示頁碼的中间部分代码-->
+                         <!--Paginator.page_range：基於1的頁數範圍迭代器。比如：[1, 2, 3, 4]-->
+                        {% for page_num in articles.paginator.page_range %}
+                            {% if page_num == articles.number %}
+                                <li class="page-item">
+                                    <a href="#" class="page-link">
+                                        {{ page_num }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_num }}" class="page-link">{{ page_num }}
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                         
+                         <!-- 分頁功能末端的方向箭頭代码-->
+                        {% if  articles.has_next %}
+                        <li class="page-item">
+                            <a href="?page={{ articles.next_page_number }}" aria-label="last" class="page-link">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+</div>
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/socials.js' %}"></script>
+{% endblock %}
