@@ -1,8 +1,8 @@
 REST(Resource Representational State Transfer)是一個「軟體架構風格」，其中的核心概念是，將提供服務的一方稱為資源(Resource)，
 並且利用HTTP傳輸協定的動詞(GET/POST/PUT/DELETE)來進行操作，而符合這種軟體架構風格的API，就稱為RESTful API，也因此RESTful API
 可以透過HTTP動詞及API網址，可以很直覺的知道會進行什麼樣的操作，簡單舉例如下：
-  •	查詢電影資料GET /movies
-  •	查詢電影資料GET /movies/1
-  •	新增電影資料POST /movies
-  •	修改電影資料PUT /movies
-  •	刪除電影資料DELETE /movies
+  •查詢電影資料GET /movies
+  •查詢電影資料GET /movies/1
+  •新增電影資料POST /movies
+  •修改電影資料PUT /movies
+  •刪除電影資料DELETE /movies
